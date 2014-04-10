@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="polem_departements.provider.class">Polem\Departements\Provider</parameter>
+        <parameter key="polem_departements.datasource.class">Polem\Departements\Datasource\JsonDatasource</parameter>
+        <parameter key="polem_departements.provider.data_file">%kernel.root_dir%/../vendor/polem/departements/src/Departements/Resources/datas/datas.json</parameter>
+    </parameters>
+
+    <services>
+        <service id="polem_departements.datasource" class="%polem_departements.datasource.class%">
+            <argument>%polem_departements.provider.data_file%</argument>
+        </service>
+
+        <service id="polem_departements.provider" class="%polem_departements.provider.class%">
+            <argument type="service" id="polem_departements.datasource" />
+        </service>
+    </services>
+
+</container>
+
+
