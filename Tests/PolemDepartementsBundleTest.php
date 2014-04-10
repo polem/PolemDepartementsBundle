@@ -27,6 +27,10 @@ class PolemDepartementsBundleTest extends \Phpunit_Framework_TestCase
             ->with('polem_departements')
             ->will($this->returnValue($this->createExtensionMock()))
         ;
+
+        $bundle = new PolemDepartementsBundle;
+
+        $bundle->build($containerMock);
     }
 
     protected function createExtensionMock()

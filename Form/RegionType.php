@@ -4,6 +4,8 @@ namespace Polem\DepartementsBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\ChoiceList\ObjectChoiceList;
+use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class RegionType extends AbstractType
@@ -15,16 +17,16 @@ class RegionType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $regions = $this->provider->findAllRegions();
+        $provider = $this->provider;
 
-        $choices = array();
+        $regions = $provider->findAllRegions();
 
-        foreach($regions as $region) {
-            $choices[$region->getCode()] = sprintf('%d - %s', $region->getCode(), $region->getName());
-        }
+        $choices = function (Options $options) use($regions) {
+            return new ObjectChoiceList($regions, null, $options['preferred_choices'], null, 'code', null);
+        };
 
         $resolver->setDefaults(array(
-            'choices' => $choices
+            'choice_list' => $choices
         ));
     }
 

@@ -4,6 +4,8 @@ namespace Polem\DepartementsBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\ChoiceList\ObjectChoiceList;
+use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class DepartementType extends AbstractType
@@ -19,12 +21,12 @@ class DepartementType extends AbstractType
 
         $choices = array();
 
-        foreach($departements as $departement) {
-            $choices[$departement->getCode()] = sprintf('%d - %s', $departement->getCode(), $departement->getName());
-        }
+        $choices = function (Options $options) use ($departements) {
+            return new ObjectChoiceList($departements, null, $options['preferred_choices'], null, 'code', null);
+        };
 
         $resolver->setDefaults(array(
-            'choices' => $choices
+            'choice_list' => $choices
         ));
     }
 

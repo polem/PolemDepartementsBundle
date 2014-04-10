@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "e580925eb9deaa167c67de2b9c0ba9ff",
+    "hash": "2b55b31d73ea4b107ade111950e2fd3b",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -230,16 +230,16 @@
         },
         {
             "name": "polem/departements",
-            "version": "0.0.3",
+            "version": "0.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/polem/departements.git",
-                "reference": "3037e92061a8cfd1fbb60f6adcf593af396a87f8"
+                "reference": "13d534b156ad47a86285fe6bd7a9691a81c570a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/polem/departements/zipball/3037e92061a8cfd1fbb60f6adcf593af396a87f8",
-                "reference": "3037e92061a8cfd1fbb60f6adcf593af396a87f8",
+                "url": "https://api.github.com/repos/polem/departements/zipball/13d534b156ad47a86285fe6bd7a9691a81c570a4",
+                "reference": "13d534b156ad47a86285fe6bd7a9691a81c570a4",
                 "shasum": ""
             },
             "require": {
@@ -262,7 +262,7 @@
                 }
             ],
             "description": "Simple french departments and areas library",
-            "time": "2014-04-10 13:49:28"
+            "time": "2014-04-10 22:02:49"
         },
         {
             "name": "psr/log",
