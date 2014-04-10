@@ -8,13 +8,8 @@
         "polem/departements":             "dev-master"
     },
     "require-dev": {
-        "sensio/framework-extra-bundle":  "~2.2",
-        "symfony/form":                   "~2.2",
-        "symfony/validator":              "~2.2",
-        "symfony/serializer":             "~2.2",
-        "symfony/yaml":                   "~2.2",
-        "symfony/security":               "~2.2",
-        "jms/serializer-bundle":          "0.12.*"
+        "symfony/form":                   "~2.4",
+        "symfony/validator":              "~2.4"
     },
     "license": "MIT",
     "target-dir": "Polem/DepartementsBundle",
