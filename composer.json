@@ -19,8 +19,8 @@
     "license": "MIT",
     "target-dir": "Polem/DepartementsBundle",
     "autoload": {
-        "psr-4": {
-            "Polem\\DepartementsBundle\\": ""
+        "psr-0": {
+            "Polem\\DepartementsBundle": ""
         }
     },
     "authors": [{
