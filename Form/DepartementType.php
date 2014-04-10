@@ -15,8 +15,16 @@ class DepartementType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
+        $departements = $this->provider->findAllDepartements();
+
+        $choices = array();
+
+        foreach($departements as $departement) {
+            $choices[$departement->getCode()] = sprintf('%d - %s', $departement->getCode(), $departement->getName());
+        }
+
         $resolver->setDefaults(array(
-            'choices' => iterator_to_array($this->provider->getAllDepartements())
+            'choices' => $choices
         ));
     }
 
@@ -25,7 +33,7 @@ class DepartementType extends AbstractType
      */
     public function getName()
     {
-        return 'polem_departements_departement';
+        return 'polem_departement';
     }
 
     public function getParent()

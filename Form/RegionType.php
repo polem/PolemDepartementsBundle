@@ -15,8 +15,16 @@ class RegionType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
+        $regions = $this->provider->findAllRegions();
+
+        $choices = array();
+
+        foreach($regions as $region) {
+            $choices[$region->getCode()] = sprintf('%d - %s', $region->getCode(), $region->getName());
+        }
+
         $resolver->setDefaults(array(
-            'choices' => iterator_to_array($this->provider->getAllRegions())
+            'choices' => $choices
         ));
     }
 
@@ -25,7 +33,7 @@ class RegionType extends AbstractType
      */
     public function getName()
     {
-        return 'polem_departements_region';
+        return 'polem_region';
     }
 
     public function getParent()

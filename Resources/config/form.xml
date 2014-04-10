@@ -17,7 +17,7 @@
             <tag name="form.type" alias="polem_departement" />
         </service>
 
-        <service id="polem_departements.form.type.region" class="%polem_departements.form.type.departement.class%">
+        <service id="polem_departements.form.type.region" class="%polem_departements.form.type.region.class%">
             <call method="setProvider">
                 <argument type="service" id="polem_departements.provider" />
             </call>
