@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "584e97aba3927efa9d707e202e190d00",
+    "hash": "e580925eb9deaa167c67de2b9c0ba9ff",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -230,7 +230,7 @@
         },
         {
             "name": "polem/departements",
-            "version": "dev-master",
+            "version": "0.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/polem/departements.git",
@@ -1459,9 +1459,9 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "polem/departements": 20
-    },
+    "stability-flags": [
+
+    ],
     "platform": {
         "php": ">=5.3.2"
     },
