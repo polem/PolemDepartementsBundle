@@ -17,14 +17,21 @@ class DepartementType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $departements = $this->provider->findAllDepartements();
+        $provider = $this->provider;
 
-        $choices = function (Options $options) use ($departements) {
+        $choices = function (Options $options) use ($provider) {
+            if (null === $options['region']) {
+                $departements = $provider->findAllDepartements();
+                return new ObjectChoiceList($departements, null, $options['preferred_choices'], null, 'code', null);
+            }
+
+            $departements = $provider->findRegionByCode($options['region'])->getDepartements();
             return new ObjectChoiceList($departements, null, $options['preferred_choices'], null, 'code', null);
         };
 
         $resolver->setDefaults(array(
-            'choice_list' => $choices
+            'choice_list' => $choices,
+            'region'      => null
         ));
     }
 

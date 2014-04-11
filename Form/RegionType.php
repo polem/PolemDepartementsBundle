@@ -19,9 +19,8 @@ class RegionType extends AbstractType
     {
         $provider = $this->provider;
 
-        $regions = $provider->findAllRegions();
-
-        $choices = function (Options $options) use($regions) {
+        $choices = function (Options $options) use($provider) {
+            $regions = $provider->findAllRegions();
             return new ObjectChoiceList($regions, null, $options['preferred_choices'], null, 'code', null);
         };
 
