@@ -42,6 +42,9 @@ class PolemDepartementsBundleTest extends \Phpunit_Framework_TestCase
         return $this->getMock('Polem\DepartementsBundle\DependencyInjection\PolemDepartementsExtension', $methods, array(), '', false);
     }
 
+    /**
+     * @return ContainerBuilder
+     */
     protected function createContainerBuilderMock()
     {
         return $this->getMock('Symfony\Component\DependencyInjection\ContainerBuilder', array(), array(), '', false);

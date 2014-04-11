@@ -2,7 +2,6 @@
 
 namespace Polem\DepartementsBundle\DependencyInjection;
 
-use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -16,7 +15,7 @@ class Configuration implements ConfigurationInterface
     /**
      * Generates the configuration tree.
      *
-     * @return \Symfony\Component\Config\Definition\NodeInterface
+     * @return TreeBuilder
      */
     public function getConfigTreeBuilder()
     {
@@ -29,7 +28,7 @@ class Configuration implements ConfigurationInterface
     /**
      * Generates the configuration tree.
      *
-     * @return \Symfony\Component\DependencyInjection\Configuration\NodeInterface
+     * @return \Symfony\Component\Config\Definition\NodeInterface
      */
     public function getConfigTree()
     {
