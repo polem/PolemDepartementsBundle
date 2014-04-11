@@ -19,8 +19,6 @@ class DepartementType extends AbstractType
     {
         $departements = $this->provider->findAllDepartements();
 
-        $choices = array();
-
         $choices = function (Options $options) use ($departements) {
             return new ObjectChoiceList($departements, null, $options['preferred_choices'], null, 'code', null);
         };
