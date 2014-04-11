@@ -2,7 +2,6 @@
 
 namespace Polem\DepartementsBundle\Tests\Form;
 
-use Symfony\Component\Form\Test\TypeTestCase;
 use Departements\Model\Departement;
 use Polem\DepartementsBundle\Form\DepartementType;
 
