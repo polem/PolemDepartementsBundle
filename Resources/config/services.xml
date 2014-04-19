@@ -18,6 +18,11 @@
         <service id="polem_departements.provider" class="%polem_departements.provider.class%">
             <argument type="service" id="polem_departements.datasource" />
         </service>
+
+        <service id="polem_departements.twig.departements_extension" class="Polem\DepartementsBundle\Twig\DepartementsExtension">
+            <argument type="service" id="polem_departements.provider" />
+            <tag name="twig.extension" />
+        </service>
     </services>
 
 </container>
