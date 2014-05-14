@@ -29,7 +29,7 @@ class DepartementType extends AbstractType
         };
 
         $resolver->setDefaults(array(
-            'sorted_by_name' => true
+            'sorted_by_name' => true,
             'choice_list'    => $choices,
             'region'         => null
         ));
