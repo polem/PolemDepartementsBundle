@@ -20,7 +20,7 @@ class DepartementType extends AbstractType
 
         $choices = function (Options $options) use ($provider) {
             if (null === $options['region']) {
-                $departements = $provider->findAllDepartements();
+                $departements = $provider->findAllDepartements($options['sorted_by_name']);
                 return new ObjectChoiceList($departements, null, $options['preferred_choices'], null, 'code', null);
             }
 
@@ -29,8 +29,9 @@ class DepartementType extends AbstractType
         };
 
         $resolver->setDefaults(array(
-            'choice_list' => $choices,
-            'region'      => null
+            'sorted_by_name' => true
+            'choice_list'    => $choices,
+            'region'         => null
         ));
     }
 
