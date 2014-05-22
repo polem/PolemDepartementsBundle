@@ -1,0 +1,3 @@
+polem_departments_list_departements:
+    path:   /departements
+    defaults:  { _controller: 'polem_departements.departements_controller:listDepartementsAction' }

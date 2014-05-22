@@ -8,6 +8,7 @@
         <parameter key="polem_departements.provider.class">Departements\Provider</parameter>
         <parameter key="polem_departements.datasource.class">Departements\Datasource\JsonDatasource</parameter>
         <parameter key="polem_departements.provider.data_file">%kernel.root_dir%/../vendor/polem/departements/src/Departements/Resources/datas/datas.json</parameter>
+        <parameter key="polem_departements.departements_controller.class">Polem\DepartementsBundle\Controller\DepartementsController</parameter>
     </parameters>
 
     <services>
@@ -23,8 +24,11 @@
             <argument type="service" id="polem_departements.provider" />
             <tag name="twig.extension" />
         </service>
+
+        <service id="polem_departements.departements_controller" class="%polem_departements.departements_controller.class%">
+            <argument type="service" id="polem_departements.provider" />
+        </service>
     </services>
 
 </container>
-
 
