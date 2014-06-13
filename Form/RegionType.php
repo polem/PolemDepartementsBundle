@@ -38,7 +38,7 @@ class RegionType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        if(!$options['use_codes']) {
+        if($options['use_codes']) {
             $transformer = new CodeToRegionTransformer($this->provider);
             $builder->addModelTransformer($transformer);
         }
