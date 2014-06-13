@@ -6,6 +6,9 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\ChoiceList\ObjectChoiceList;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Form\FormBuilderInterface;
+
+use Polem\DepartementsBundle\Form\DataTransformer\CodeToDepartementTransformer;
 
 class DepartementType extends AbstractType
 {
@@ -29,10 +32,22 @@ class DepartementType extends AbstractType
         };
 
         $resolver->setDefaults(array(
+            'use_codes'      => false,
             'sorted_by_name' => true,
             'choice_list'    => $choices,
             'region'         => null
         ));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        if($options['use_codes']) {
+            $transformer = new CodeToDepartementTransformer($this->provider);
+            $builder->addModelTransformer($transformer);
+        }
     }
 
     /**

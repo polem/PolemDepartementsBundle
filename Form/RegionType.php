@@ -6,6 +6,9 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\ChoiceList\ObjectChoiceList;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Form\FormBuilderInterface;
+
+use Polem\DepartementsBundle\Form\DataTransformer\CodeToRegionTransformer;
 
 class RegionType extends AbstractType
 {
@@ -24,9 +27,21 @@ class RegionType extends AbstractType
         };
 
         $resolver->setDefaults(array(
+            'use_codes'      => false,
             'choice_list'    => $choices,
             'sorted_by_name' => true
         ));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        if(!$options['use_codes']) {
+            $transformer = new CodeToRegionTransformer($this->provider);
+            $builder->addModelTransformer($transformer);
+        }
     }
 
     /**
